@@ -1,0 +1,19 @@
+.main {
+  width: 368px;
+  margin: 0 auto;
+
+  .card {
+    padding: 35px 25px;
+    background-color: white;
+    border-radius: 12px;
+
+    h2 {
+      font-weight: bold;
+    }
+
+    p {
+      margin-bottom: 25px;
+      opacity: 0.6;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+plugins {
+    id 'io.freefair.lombok' version '8.0.1'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version '3.0.5'
+    id 'java-library'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+repositories {
+    mavenCentral()
+}
+
+group = 'mn.accept.system'
+version = '0.0.1-SNAPSHOT'
+
+def fastExcelVersion = '0.14.2'
+
+dependencyManagement {
+}
+
+dependencies {
+    // shared
+    api project(':shared:auth')
+    api project(':shared:common')
+    api project(':shared:model')
+    api project(':aws:aws-s3')
+    // spring boot
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // aws sdk
+    implementation platform('software.amazon.awssdk:bom:2.19.0')
+    implementation 'software.amazon.awssdk:s3'
+
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation "org.dhatim:fastexcel:${fastExcelVersion}"
+    implementation "org.dhatim:fastexcel-reader:${fastExcelVersion}"
+    // Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}

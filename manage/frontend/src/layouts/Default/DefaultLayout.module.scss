@@ -1,0 +1,22 @@
+@import "../../styles/vars";
+
+.wrapper {
+  min-height: 100vh !important;
+
+  .content {
+    position: relative;
+    margin: 15px;
+    background-color: transparent !important;
+  }
+}
+
+.anchor {
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  background-color: $primary-color;
+  color: white;
+  text-align: center;
+  font-size: 28px;
+}

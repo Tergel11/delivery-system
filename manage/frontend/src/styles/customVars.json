@@ -1,0 +1,9 @@
+{
+  "token": {
+    "colorPrimary": "#405189",
+    "colorPrimaryBg": "#405189",
+    "colorLink": "#405189",
+    "borderRadius": 8,
+    "fontSize": 16
+  }
+}

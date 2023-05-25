@@ -1,0 +1,47 @@
+plugins {
+    id 'io.freefair.lombok' version '8.0.1'
+    id 'java-library'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+group = 'mn.accept.system'
+version = '0.0.1-SNAPSHOT'
+
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+def springBootVersion = '3.0.5'
+def jjwtVersion = '0.11.5'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //shared
+    api project(':shared:model')
+    // spring boot
+    implementation "org.springframework.boot:spring-boot-starter-data-mongodb:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
+
+    // jjwt
+    implementation "io.jsonwebtoken:jjwt-api:${jjwtVersion}"
+    runtimeOnly "io.jsonwebtoken:jjwt-impl:${jjwtVersion}"
+    runtimeOnly "io.jsonwebtoken:jjwt-jackson:${jjwtVersion}"
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    // shared
+    api project(':shared:2fa')
+    // test
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,40 @@
+plugins {
+    id 'io.freefair.lombok' version '8.0.1'
+    id 'java-library'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+group = 'mn.accept.system'
+version = '0.0.1-SNAPSHOT'
+
+def springBootVersion = '3.0.5'
+def jjwtVersion = '0.11.5'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // spring boot
+    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+
+    // jjwt
+    implementation "io.jsonwebtoken:jjwt-api:${jjwtVersion}"
+    runtimeOnly "io.jsonwebtoken:jjwt-impl:${jjwtVersion}"
+    runtimeOnly "io.jsonwebtoken:jjwt-jackson:${jjwtVersion}"
+    // otp
+    implementation 'com.github.bastiaanjansen:otp-java:1.2.2'
+    // shared
+    api project(':shared:model')
+    // test
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}

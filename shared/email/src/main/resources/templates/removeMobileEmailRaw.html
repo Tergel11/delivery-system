@@ -1,0 +1,14 @@
+<h2 style="color: rgba(0,0,0,0.7); font-size: 25px; margin-bottom: 30px; font-weight: bold; line-height: 1.4;">
+    Starter платформд баталгаажуулсан утасны дугаараа устгах уу ?
+</h2>
+<h3 style="font-size: 18px;color: rgba(0,0,0,0.5); font-weight: 400;">
+    Та доорх линк дээр дарж орсноор өөрийн бүртгэлээс <text th:text="${mobile}"></text> дугаарыг устгах болно. 
+    Ингэснээр та өөрийн дугаарыг шинээр бүртгүүлж баталгаажуулах боломжтой болно.
+</h3>
+<p>
+    <a th:href="@{${link}}" style="font-size: 20px; font-weight: 400;">Устгах</a>
+</p>
+<h3 style="font-size: 18px;color: rgba(0,0,0,0.5); font-weight: 400;">
+    Хэрвээ холбоос ажиллахгүй бол дараах холбоосыг хуулаад вэб хөтөч дээрээ нээнэ үү:
+    <text th:text="${link}"></text>
+</h3>

@@ -1,0 +1,13 @@
+rootProject.name = 'delivery-system-parent'
+
+include 'shared:2fa'
+include 'shared:auth'
+include 'shared:common'
+include 'shared:email'
+include 'shared:model'
+
+include 'aws:aws-common'
+include 'aws:aws-rekognition'
+include 'aws:aws-s3'
+
+include 'manage:backend'
