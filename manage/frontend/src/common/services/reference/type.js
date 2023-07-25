@@ -1,7 +1,6 @@
 import {getApiUrl} from '../../base'
 import {toQueryString} from '../../util/queryString'
 import {jsonRequestWithToken} from '../../util/request'
-import {getToken} from '../../util/auth'
 
 const baseUrl = '/v1/reference-type'
 

@@ -1,8 +1,6 @@
 import {getApiUrl} from '../../base'
 import {toQueryString} from '../../util/queryString'
 import {jsonRequestWithToken} from '../../util/request'
-import {getToken} from '../../util/auth'
-import {useSession} from 'next-auth/react'
 
 const baseUrl = 'v1/reference-data'
 

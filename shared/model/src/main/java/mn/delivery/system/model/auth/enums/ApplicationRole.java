@@ -57,6 +57,10 @@ public enum ApplicationRole {
     // article
     ROLE_ARTICLE_VIEW("ROLE_ARTICLE_VIEW"), // харах
     ROLE_ARTICLE_MANAGE("ROLE_ARTICLE_MANAGE"), // удирдах
+
+    // Mercahnt
+    ROLE_MERCHANT_VIEW("ROLE_MERCHANT_VIEW"), // харах
+    ROLE_MERCHANT_MANAGE("ROLE_MERCHANT_MANAGE"), // удирдах
     ;
 
     private final String value;
@@ -74,7 +78,10 @@ public enum ApplicationRole {
                 ROLE_USER_VIEW,
                 ROLE_USER_MANAGE,
                 ROLE_ARTICLE_MANAGE,
-                ROLE_ARTICLE_VIEW);
+                ROLE_ARTICLE_VIEW,
+                ROLE_MERCHANT_VIEW,
+                ROLE_MERCHANT_MANAGE
+        );
     }
 
     public static List<ApplicationRole> getCustomerRole() {
