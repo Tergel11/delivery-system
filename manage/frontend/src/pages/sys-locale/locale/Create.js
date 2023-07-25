@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {Button, Form, Input, Modal, Popconfirm, Switch, Table, message, Tooltip, Row, Col} from 'antd'
 import {observer} from 'mobx-react-lite'
 
@@ -105,9 +105,9 @@ const LocaleCreate = observer(({
       width: '100px',
       render: (_, record) => (
         <>
-          <Tooltip placement="top" title="Устгах">
-            <Popconfirm title="Устгах уу ?" onConfirm={() => handleDelete(record)}>
-              <Button icon={<DeleteTwoTone/>} style={{color: 'red'}} type="dashed" shape="circle"/>
+          <Tooltip placement='top' title='Устгах'>
+            <Popconfirm title='Устгах уу ?' onConfirm={() => handleDelete(record)}>
+              <Button icon={<DeleteTwoTone/>} style={{color: 'red'}} type='dashed' shape='circle'/>
             </Popconfirm>
           </Tooltip>
         </>
@@ -116,12 +116,12 @@ const LocaleCreate = observer(({
 
   return (
     <Modal
-      title={`Орчуулгын мэдээлэл бүртгэх`}
+      title={'Орчуулгын мэдээлэл бүртгэх'}
       width={800}
       onOk={() => submitHandle()}
       onCancel={backHandle}
-      okText="Хадгалах"
-      cancelText="Болих"
+      okText='Хадгалах'
+      cancelText='Болих'
       confirmLoading={loading}
       open={modalOpen}
       forceRender
@@ -136,10 +136,10 @@ const LocaleCreate = observer(({
           <Col span={11}>
             <FormItem
               wrapperCol={{span: 20}}
-              label="Байршил"
-              name="nsId"
+              label='Байршил'
+              name='nsId'
               rules={[{required: true, message: 'Нэр бичнэ үү'}]}
-              // className="mb10"
+              // className='mb10'
             >
               <SelectNameSpace
                 onChange={(_, option) => form.setFieldValue('nsName', option.children)}
@@ -149,10 +149,10 @@ const LocaleCreate = observer(({
             </FormItem>
             <FormItem
               wrapperCol={{span: 20}}
-              label="Хэл"
-              name="lng"
+              label='Хэл'
+              name='lng'
               rules={[{required: true, message: 'Нэр бичнэ үү'}]}
-              // className="mb10"
+              // className='mb10'
             >
               <LanguageSelect defaultValue={null} placeHolder={'Сонгох'} token={session.token}/>
             </FormItem>
@@ -160,43 +160,43 @@ const LocaleCreate = observer(({
           <Col>
             <FormItem
               wrapperCol={{span: 24}}
-              label="Талбарын нэр"
-              name="field"
+              label='Талбарын нэр'
+              name='field'
               rules={[
                 {required: true, message: 'Талбарын нэр'},
                 {validator: (rule, control, callback) => validateField(rule, control, callback)}
               ]}
-              // className="mb10"
+              // className='mb10'
             >
               <Input
                 suffix={
                   <Tooltip placement={'top'} title={'Зөвхөн латин жижиг үсэг оруулна'}>
                     <InfoCircleOutlined color={'blue'}/>
                   </Tooltip>}
-                placeholder="Утга"
+                placeholder='Утга'
               />
             </FormItem>
             <FormItem
-              // label="Идэвхтэй эсэх"
-              name="active"
-              valuePropName="checked"
+              // label='Идэвхтэй эсэх'
+              name='active'
+              valuePropName='checked'
               initialValue={true}
-              // className="mb10"
+              // className='mb10'
             >
-              <Switch checkedChildren="Идэвхтэй" unCheckedChildren="Идэвхгүй"/>
+              <Switch checkedChildren='Идэвхтэй' unCheckedChildren='Идэвхгүй'/>
             </FormItem>
           </Col>
         </Row>
         <FormItem
-          label="Орчуулга"
-          name="translation"
+          label='Орчуулга'
+          name='translation'
           rules={[{required: true, message: 'Орчуулга бичнэ үү'}]}
-          // className="mb10"
+          // className='mb10'
         >
-          <Input.TextArea placeholder="Орчуулга"/>
+          <Input.TextArea placeholder='Орчуулга'/>
         </FormItem>
         <FormItem style={{marginLeft: 8}}>
-          <Button type="primary" size={'small'} onClick={handleAdd}>
+          <Button type='primary' size={'small'} onClick={handleAdd}>
             Нэмэх
           </Button>
           <Button style={{marginLeft: 8}} size={'small'} onClick={() => form.resetFields()}>
@@ -205,15 +205,15 @@ const LocaleCreate = observer(({
         </FormItem>
         <FormItem
           hidden={true}
-          name="nsName"
+          name='nsName'
         >
           <Input/>
         </FormItem>
       </Form>
       <br/>
       <Table
-        rowKey="index"
-        size="small"
+        rowKey='index'
+        size='small'
         loading={loading}
         columns={columns}
         dataSource={data}

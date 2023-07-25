@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Alert, Button, Card, Col, Divider, Form, Input, Popconfirm, Row, Select, Table, Tag, Tooltip} from 'antd'
 import {observer} from 'mobx-react-lite'
 
@@ -110,25 +110,25 @@ const ReferenceData = observer(({}) => {
         <Form form={form} onFinish={handleSearch}>
           <Row gutter={25}>
             <Col span={6}>
-              <FormItem label="Лавлах сангийн төрөл" name="typeCode" className="mb10">
-                <Select showSearch optionFilterProp="children" allowClear placeholder="Сонгох" style={{width: '100%'}}>
+              <FormItem label='Лавлах сангийн төрөл' name='typeCode' className='mb10'>
+                <Select showSearch optionFilterProp='children' allowClear placeholder='Сонгох' style={{width: '100%'}}>
                   {referenceTypeStore?.selectData?.map(makeOptionReferenceType)}
                 </Select>
               </FormItem>
             </Col>
             <Col span={6}>
-              <FormItem label="Лавлах сангийн нэр" name="name" className="mb10">
-                <Input placeholder="Лавлах сангийн нэр"/>
+              <FormItem label='Лавлах сангийн нэр' name='name' className='mb10'>
+                <Input placeholder='Лавлах сангийн нэр'/>
               </FormItem>
             </Col>
             <Col span={2}>
-              <FormItem label="Код" name="code" className="mb10">
-                <Input placeholder="Код"/>
+              <FormItem label='Код' name='code' className='mb10'>
+                <Input placeholder='Код'/>
               </FormItem>
             </Col>
             <Col span={4}>
               <FormItem>
-                <Button type="primary" htmlType="submit">
+                <Button type='primary' htmlType='submit'>
                   Хайх
                 </Button>
                 <Button style={{marginLeft: 8}} onClick={handleFormReset}>
@@ -146,7 +146,7 @@ const ReferenceData = observer(({}) => {
     {
       title: 'Лого',
       dataIndex: 'icon',
-      render: (text) => text && <img src={text.url} height={50} alt="icon"/>
+      render: (text) => text && <img src={text.url} height={50} alt='icon'/>
     },
     {
       title: 'Төрөл',
@@ -178,7 +178,7 @@ const ReferenceData = observer(({}) => {
     {
       title: 'Ашиглах эсэх',
       dataIndex: 'active',
-      render: (text) => (text ? <Tag color="green">Тийм</Tag> : <Tag color="purple">Үгүй</Tag>)
+      render: (text) => (text ? <Tag color='green'>Тийм</Tag> : <Tag color='purple'>Үгүй</Tag>)
     },
     {
       title: 'Үйлдэл',
@@ -187,19 +187,19 @@ const ReferenceData = observer(({}) => {
       render: (text, record) => {
         return (
           <>
-            <Tooltip placement="top" title="Засах">
+            <Tooltip placement='top' title='Засах'>
               <Button
                 icon={<EditTwoTone/>}
                 onClick={() => showModal('UPDATE', record)}
                 style={{color: 'green'}}
-                type="dashed"
-                shape="circle"
+                type='dashed'
+                shape='circle'
               />
             </Tooltip>
-            <Divider type="vertical"/>
-            <Tooltip placement="top" title="Устгах">
-              <Popconfirm title="Устгах уу ?" onConfirm={() => handleDelete(record)}>
-                <Button icon={<DeleteOutlined/>} style={{color: 'red'}} type="dashed" shape="circle"/>
+            <Divider type='vertical'/>
+            <Tooltip placement='top' title='Устгах'>
+              <Popconfirm title='Устгах уу ?' onConfirm={() => handleDelete(record)}>
+                <Button icon={<DeleteOutlined/>} style={{color: 'red'}} type='dashed' shape='circle'/>
               </Popconfirm>
             </Tooltip>
           </>
@@ -210,14 +210,14 @@ const ReferenceData = observer(({}) => {
 
   const headerActions = (
     checkAuthRole('ROLE_REFERENCE_TYPE_MANAGE', session.applicationRoles) ? (
-      <Button icon={<PlusOutlined/>} type="primary" onClick={() => showModal('CREATE')}>
+      <Button icon={<PlusOutlined/>} type='primary' onClick={() => showModal('CREATE')}>
         Лавлах сан нэмэх
       </Button>
     ) : '')
 
   return (
     <>
-      <NextSeo title="Хэрэглэгчийн эрх - Astvision Starter"/>
+      <NextSeo title='Хэрэглэгчийн эрх - Astvision Starter'/>
       <PageHeader
         routes={[
           {
@@ -225,7 +225,7 @@ const ReferenceData = observer(({}) => {
             link: '/'
           }
         ]}
-        title="Лавлах сангийн жагсаалт"
+        title='Лавлах сангийн жагсаалт'
         action={headerActions}
       />
       <Card>
@@ -241,13 +241,13 @@ const ReferenceData = observer(({}) => {
                   </span>
                 </span>
               }
-              type="info"
+              type='info'
               showIcon
             />
           )}
           loading={loading}
-          rowKey="key"
-          size="small"
+          rowKey='key'
+          size='small'
           columns={columns}
           dataSource={list}
           pagination={paginationProps}

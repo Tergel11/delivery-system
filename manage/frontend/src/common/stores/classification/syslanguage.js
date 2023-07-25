@@ -59,7 +59,7 @@ class SysLanguageStore {
   fetchSelect(payload, token) {
     this.selectLoading = true
     const promise = select(payload, token)
-      promise.then(response => {
+    promise.then(response => {
       if (response.result === true && response.data) {
         this.selectData = response.data
       }

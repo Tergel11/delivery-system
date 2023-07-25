@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import {useEffect} from 'react'
 import {Form, Input, InputNumber, message, Modal, Select, Switch, Upload} from 'antd'
 import {observer} from 'mobx-react-lite'
 import {normFile} from '../../../common/util/file'
@@ -146,8 +146,8 @@ const ReferenceData = observer(({
       open={open}
       onOk={() => submitHandle()}
       onCancel={backHandle}
-      okText="Хадгалах"
-      cancelText="Болих"
+      okText='Хадгалах'
+      cancelText='Болих'
       confirmLoading={loading}
       forceRender
     >
@@ -158,28 +158,28 @@ const ReferenceData = observer(({
         initialValues={initialValues}
       >
         <FormItem
-          label="Лавлах сангийн төрөл"
-          name="typeCode"
+          label='Лавлах сангийн төрөл'
+          name='typeCode'
           rules={[{required: true, message: 'Лавлах сангийн төрөл сонгоно уу'}]}
-          className="mb10"
+          className='mb10'
         >
           <Select
             showSearch
-            optionFilterProp="children"
+            optionFilterProp='children'
             allowClear
             // onChange={handleChangeType}
-            placeholder="Сонгох"
+            placeholder='Сонгох'
             style={{width: '100%'}}
           >
             {typeList?.map(makeOptionReferenceType)}
           </Select>
         </FormItem>
         <FormItem
-          label="Лавлах сангийн нэр"
-          name="name"
+          label='Лавлах сангийн нэр'
+          name='name'
           initialValue={name || {mn: ''}}
           rules={[{required: true, message: 'Лавлах сангийн нэр бичнэ үү'}]}
-          className="mb10"
+          className='mb10'
           valuePropName={'value'}
         >
           <MultiLangField
@@ -192,18 +192,18 @@ const ReferenceData = observer(({
           />
         </FormItem>
         <FormItem
-          label="Код"
-          name="code"
+          label='Код'
+          name='code'
           rules={[{required: true, message: 'Код бичнэ үү!'}]}
-          className="mb10"
+          className='mb10'
         >
-          <Input placeholder="Код"/>
+          <Input placeholder='Код'/>
         </FormItem>
         <FormItem
           initialValue={description || {mn: ''}}
-          label="Тайлбар"
-          name="description"
-          className="mb10"
+          label='Тайлбар'
+          name='description'
+          className='mb10'
         >
           <MultiLangField
             form={form}
@@ -214,20 +214,20 @@ const ReferenceData = observer(({
           />
         </FormItem>
         <FormItem
-          label="Эрэмбэ"
-          name="order"
+          label='Эрэмбэ'
+          name='order'
           rules={[{required: true, message: 'Эрэмбэ оруулна уу!'}]}
-          className="mb10"
+          className='mb10'
         >
-          <InputNumber formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')} min={1} step={1} placeholder="Дугаар"/>
+          <InputNumber formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')} min={1} step={1} placeholder='Дугаар'/>
         </FormItem>
         <FormItem
-          label="Ашиглах эсэх"
-          name="active"
-          valuePropName="checked"
-          className="mb10"
+          label='Ашиглах эсэх'
+          name='active'
+          valuePropName='checked'
+          className='mb10'
         >
-          <Switch checkedChildren="Тийм" unCheckedChildren="Үгүй"/>
+          <Switch checkedChildren='Тийм' unCheckedChildren='Үгүй'/>
         </FormItem>
 
         <FormItem
@@ -237,17 +237,17 @@ const ReferenceData = observer(({
           {({getFieldValue}) => {
             return <>
               <FormItem
-                label="Зураг"
-                name="icon"
-                valuePropName="fileList"
+                label='Зураг'
+                name='icon'
+                valuePropName='fileList'
                 getValueFromEvent={normFile}
                 initialValue={icon && [icon] || []}
-                className="mb10"
+                className='mb10'
               >
                 <Upload
-                  name="file"
-                  accept="image/*"
-                  listType="picture-card"
+                  name='file'
+                  accept='image/*'
+                  listType='picture-card'
                   headers={{'X-Auth-Token': session?.token}}
                   data={{entity: 'referenceIcon', entityId: Math.random().toString(36).substring(2)}}
                   action={getCdnUploadUrl()}

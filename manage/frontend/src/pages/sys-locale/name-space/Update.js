@@ -1,10 +1,7 @@
-import React, {useState} from 'react'
-import {Button, Form, Input, Modal, Popconfirm, Switch, Table, message, Tooltip} from 'antd'
+import {Form, Input, Modal, Switch} from 'antd'
 import {observer} from 'mobx-react-lite'
 
 import {useStore} from '../../../context/mobxStore'
-import {DeleteTwoTone, InfoCircleOutlined} from '@ant-design/icons'
-import SelectNameSpace from './SelectNameSpace'
 
 const FormItem = Form.Item
 
@@ -55,12 +52,12 @@ const NameSpaceCreate = observer(({
 
   return (
     <Modal
-      title={`Орчуулгын харяалах байрлал засах`}
+      title={'Орчуулгын харяалах байрлал засах'}
       width={500}
       onOk={() => submitHandle()}
       onCancel={backHandle}
-      okText="Хадгалах"
-      cancelText="Болих"
+      okText='Хадгалах'
+      cancelText='Болих'
       confirmLoading={loading}
       open={modalOpen}
       forceRender
@@ -72,34 +69,34 @@ const NameSpaceCreate = observer(({
         initialValues={editData}
       >
         <FormItem
-          label="Нэр"
-          name="name"
+          label='Нэр'
+          name='name'
           rules={[{required: true, message: 'Нэр бичнэ үү'}]}
-          // className="mb10"
+          // className='mb10'
         >
-          <Input placeholder="Нэр"/>
+          <Input placeholder='Нэр'/>
         </FormItem>
         <FormItem
-          label="Утга"
-          name="value"
+          label='Утга'
+          name='value'
           rules={[
             {required: true, message: 'Утга'},
             {validator: (rule, control, callback) => validateField(rule, control, callback)}
           ]}
           extra={'Зөвхөн латин жижиг үсэг оруулна'}
-          // className="mb10"
+          // className='mb10'
         >
           <Input
-            placeholder="Утга"
+            placeholder='Утга'
           />
         </FormItem>
         <FormItem
-          // label="Идэвхтэй эсэх"
-          name="active"
+          // label='Идэвхтэй эсэх'
+          name='active'
           valuePropName={'checked'}
-          // className="mb10"
+          // className='mb10'
         >
-          <Switch checkedChildren="Идэвхтэй" unCheckedChildren="Идэвхгүй"/>
+          <Switch checkedChildren='Идэвхтэй' unCheckedChildren='Идэвхгүй'/>
         </FormItem>
       </Form>
     </Modal>

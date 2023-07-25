@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import {useEffect} from 'react'
 import {observer} from 'mobx-react-lite'
 import {Select} from 'antd'
 import {useStore} from '../../../context/mobxStore'
@@ -29,7 +29,7 @@ const NameSpaceSelect = observer(({
     >
       {
         nameSpaceStore.selectData?.map((item, index) => (
-          <Select.Option value={item?.id} >{item?.name}</Select.Option>
+          <Select.Option value={item?.id} key={index}>{item?.name}</Select.Option>
         ))
       }
     </Select>

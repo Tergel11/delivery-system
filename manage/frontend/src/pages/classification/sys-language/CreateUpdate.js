@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react'
+import {useEffect} from 'react'
 import {Form, Input, InputNumber, Modal, Switch} from 'antd'
 import {observer} from 'mobx-react-lite'
 
 import {useStore} from '../../../context/mobxStore'
-import {useSession} from 'next-auth/react'
 
 const FormItem = Form.Item
 
@@ -82,52 +81,49 @@ const SysLanguageUpdate = observer(({
       width={900}
       onOk={() => submitHandle()}
       onCancel={backHandle}
-      okText="Хадгалах"
-      cancelText="Болих"
+      okText='Хадгалах'
+      cancelText='Болих'
       confirmLoading={loading}
       open={modalOpen}
       forceRender
     >
       <br/>
-      <Form {...formLayout}
-            form={form}
-            initialValues={initialValues}
-      >
+      <Form {...formLayout} form={form} initialValues={initialValues}>
         <FormItem
-          label="Нэр"
-          name="name"
+          label='Нэр'
+          name='name'
           rules={[{required: true, message: 'Нэр бичнэ үү'}]}
-          // className="mb10"
+          // className='mb10'
         >
-          <Input placeholder="Нэр"/>
+          <Input placeholder='Нэр'/>
         </FormItem>
         <FormItem
-          label="Код"
-          name="code"
+          label='Код'
+          name='code'
           rules={[
             {required: true, message: 'Код бичнэ үү'},
             {validator: (rule, control, callback) => validateCode(rule, control, callback)}
           ]}
-          extra="Зөвхөн латин жижиг үсэг оруулна"
-          // className="mb10"
+          extra='Зөвхөн латин жижиг үсэг оруулна'
+          // className='mb10'
         >
-          <Input disabled={!isCreate} placeholder="Код"/>
+          <Input disabled={!isCreate} placeholder='Код'/>
         </FormItem>
         <FormItem
-          label="Эрэмбэ"
-          name="order"
+          label='Эрэмбэ'
+          name='order'
           rules={[{required: true, message: 'Эрэмбэ оруулна уу!'}]}
-          // className="mb10"
+          // className='mb10'
         >
-          <InputNumber formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')} min={1} step={1} placeholder="Дугаар"/>
+          <InputNumber formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')} min={1} step={1} placeholder='Дугаар'/>
         </FormItem>
         <FormItem
-          label="Идэвхтэй эсэх"
-          name="active"
-          valuePropName="checked"
-          className="mb10"
+          label='Идэвхтэй эсэх'
+          name='active'
+          valuePropName='checked'
+          className='mb10'
         >
-          <Switch checkedChildren="Тийм" unCheckedChildren="Үгүй"/>
+          <Switch checkedChildren='Тийм' unCheckedChildren='Үгүй'/>
         </FormItem>
       </Form>
     </Modal>

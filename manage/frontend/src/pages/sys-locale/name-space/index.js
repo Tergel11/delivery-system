@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Alert, Button, Card, Divider, Form, Input, message, Popconfirm, Table, Tag, Tooltip} from 'antd'
 import {observer} from 'mobx-react-lite'
 
@@ -138,13 +138,13 @@ const NameSpace = observer(() => {
     {
       title: 'Утга',
       dataIndex: 'value',
-      render: text => <Tag color="blue">{text}</Tag>
+      render: text => <Tag color='blue'>{text}</Tag>
     },
     {
       title: 'Идэвхтэй эсэх',
       dataIndex: 'active',
       width: '150px',
-      render: text => text ? <Tag color="green">Тийм</Tag> : <Tag color="purple">Үгүй</Tag>
+      render: text => text ? <Tag color='green'>Тийм</Tag> : <Tag color='purple'>Үгүй</Tag>
     },
     {
       title: 'Үйлдэл',
@@ -154,19 +154,19 @@ const NameSpace = observer(() => {
         <>
           {canManage &&
             <>
-              <Tooltip placement="top" title="Засах">
+              <Tooltip placement='top' title='Засах'>
                 <Button
                   icon={<EditTwoTone />}
                   onClick={() => showModal('UPDATE', record)}
                   style={{color: 'green'}}
-                  type="dashed"
-                  shape="circle"
+                  type='dashed'
+                  shape='circle'
                 />
               </Tooltip>
-              <Divider type="vertical" />
-              <Tooltip placement="top" title="Устгах">
-                <Popconfirm title="Устгах уу ?" onConfirm={() => handleDelete(record)}>
-                  <Button icon={<DeleteTwoTone />} style={{color: 'red'}} type="dashed" shape="circle" />
+              <Divider type='vertical' />
+              <Tooltip placement='top' title='Устгах'>
+                <Popconfirm title='Устгах уу ?' onConfirm={() => handleDelete(record)}>
+                  <Button icon={<DeleteTwoTone />} style={{color: 'red'}} type='dashed' shape='circle' />
                 </Popconfirm>
               </Tooltip>
             </>
@@ -177,29 +177,29 @@ const NameSpace = observer(() => {
 
   const headerActions = (
     canManage ? (
-      <Button icon={<PlusOutlined />} type="primary" onClick={() => showModal('CREATE')}>
+      <Button icon={<PlusOutlined />} type='primary' onClick={() => showModal('CREATE')}>
         Бүртгэх
       </Button>
     ) : '')
 
   const renderFilterForm = () => (
-    <Form form={form} onFinish={handleSearch} layout="inline">
+    <Form form={form} onFinish={handleSearch} layout='inline'>
       <FormItem
-        label="Нэр"
-        name="name"
-        className="mb10"
+        label='Нэр'
+        name='name'
+        className='mb10'
       >
-        <Input placeholder="Нэр" />
+        <Input placeholder='Нэр' />
       </FormItem>
       <FormItem
-        label="Утга"
-        name="value"
-        className="mb10"
+        label='Утга'
+        name='value'
+        className='mb10'
       >
-        <Input placeholder="Утга" />
+        <Input placeholder='Утга' />
       </FormItem>
       <FormItem>
-        <Button type="primary" htmlType="submit">
+        <Button type='primary' htmlType='submit'>
           Хайх
         </Button>
         <Button style={{marginLeft: 8}} onClick={handleFormReset}>
@@ -211,7 +211,7 @@ const NameSpace = observer(() => {
 
   return (
     <>
-      <NextSeo title="Хэрэглэгчийн эрх - Astvision Starter" />
+      <NextSeo title='Хэрэглэгчийн эрх - Astvision Starter' />
       <PageHeader
         routes={[
           {
@@ -219,15 +219,15 @@ const NameSpace = observer(() => {
             link: '/'
           }
         ]}
-        title="Name space"
+        title='Name space'
         action={headerActions}
       />
       <Card bordered={false}>
         {renderFilterForm()}
         <br />
         <Table
-          rowKey="key"
-          size="small"
+          rowKey='key'
+          size='small'
           loading={loading}
           columns={columns}
           dataSource={list || []}
@@ -243,7 +243,7 @@ const NameSpace = observer(() => {
                   </span>
                 </span>
               }
-              type="info"
+              type='info'
               showIcon
             />
           }

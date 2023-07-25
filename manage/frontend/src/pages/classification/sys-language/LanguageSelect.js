@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import {useEffect} from 'react'
 import {observer} from 'mobx-react-lite'
 import {Select} from 'antd'
 import {useStore} from '../../../context/mobxStore'
@@ -31,7 +31,7 @@ const LanguageSelect = observer(({
     >
       {
         sysLanguageStore.selectData?.map((item, index) => (
-          <Select.Option value={item?.code}>{item?.name}</Select.Option>
+          <Select.Option value={item?.code} key={index}>{item?.name}</Select.Option>
         ))
       }
     </Select>

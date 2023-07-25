@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {Button, Form, Input, Modal, Popconfirm, Switch, Table, message, Tooltip} from 'antd'
 import {observer} from 'mobx-react-lite'
 
@@ -88,9 +88,9 @@ const NameSpaceCreate = observer(({
       width: '100px',
       render: (_, record) => (
         <>
-          <Tooltip placement="top" title="Устгах">
-            <Popconfirm title="Устгах уу ?" onConfirm={() => handleDelete(record?.value)}>
-              <Button icon={<DeleteTwoTone/>} style={{color: 'red'}} type="dashed" shape="circle"/>
+          <Tooltip placement='top' title='Устгах'>
+            <Popconfirm title='Устгах уу ?' onConfirm={() => handleDelete(record?.value)}>
+              <Button icon={<DeleteTwoTone/>} style={{color: 'red'}} type='dashed' shape='circle'/>
             </Popconfirm>
           </Tooltip>
         </>
@@ -99,12 +99,12 @@ const NameSpaceCreate = observer(({
 
   return (
     <Modal
-      title={`Орчуулгын харяалах байрлал бүртгэх`}
+      title={'Орчуулгын харяалах байрлал бүртгэх'}
       width={800}
       onOk={() => submitHandle()}
       onCancel={backHandle}
-      okText="Хадгалах"
-      cancelText="Болих"
+      okText='Хадгалах'
+      cancelText='Болих'
       confirmLoading={loading}
       open={modalOpen}
       forceRender
@@ -118,43 +118,43 @@ const NameSpaceCreate = observer(({
         <FormItem
           wrapperCol={{span: 15}}
           style={{width: '200px'}}
-          label="Нэр"
-          name="name"
+          label='Нэр'
+          name='name'
           rules={[{required: true, message: 'Нэр бичнэ үү'}]}
-          // className="mb10"
+          // className='mb10'
         >
-          <Input placeholder="Нэр"/>
+          <Input placeholder='Нэр'/>
         </FormItem>
         <FormItem
           wrapperCol={{span: 15}}
           style={{width: '200px'}}
-          label="Утга"
-          name="value"
+          label='Утга'
+          name='value'
           rules={[
             {required: true, message: 'Утга'},
             {validator: (rule, control, callback) => validateValue(rule, control, callback)}
           ]}
-          // className="mb10"
+          // className='mb10'
         >
           <Input
             suffix={
               <Tooltip placement={'top'} title={'Зөвхөн латин жижиг үсэг оруулна'}>
                 <InfoCircleOutlined color={'blue'}/>
               </Tooltip>}
-            placeholder="Утга"
+            placeholder='Утга'
           />
         </FormItem>
         <FormItem
-          // label="Идэвхтэй эсэх"
-          name="active"
-          valuePropName="checked"
+          // label='Идэвхтэй эсэх'
+          name='active'
+          valuePropName='checked'
           initialValue={true}
-          // className="mb10"
+          // className='mb10'
         >
-          <Switch checkedChildren="Идэвхтэй" unCheckedChildren="Идэвхгүй"/>
+          <Switch checkedChildren='Идэвхтэй' unCheckedChildren='Идэвхгүй'/>
         </FormItem>
         <FormItem style={{marginLeft: 8}}>
-          <Button type="primary" size={'small'} onClick={handleAdd}>
+          <Button type='primary' size={'small'} onClick={handleAdd}>
             Нэмэх
           </Button>
           <Button style={{marginLeft: 8}} size={'small'} onClick={() => form.resetFields()}>
@@ -164,8 +164,8 @@ const NameSpaceCreate = observer(({
       </Form>
       <br/>
       <Table
-        rowKey="value"
-        size="small"
+        rowKey='value'
+        size='small'
         loading={loading}
         columns={columns}
         dataSource={data}

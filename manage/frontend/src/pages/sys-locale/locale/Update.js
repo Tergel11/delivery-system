@@ -1,4 +1,3 @@
-import React from 'react'
 import {Col, Form, Input, Modal, Row, Switch, Tooltip} from 'antd'
 import {observer} from 'mobx-react-lite'
 
@@ -58,12 +57,12 @@ const LocaleUpdate = observer(({
 
   return (
     <Modal
-      title={`Орчуулгын мэдээлэл засах`}
+      title={'Орчуулгын мэдээлэл засах'}
       width={600}
       onOk={() => submitHandle()}
       onCancel={backHandle}
-      okText="Хадгалах"
-      cancelText="Болих"
+      okText='Хадгалах'
+      cancelText='Болих'
       confirmLoading={loading}
       open={modalOpen}
       forceRender
@@ -77,60 +76,60 @@ const LocaleUpdate = observer(({
         <Row gutter={25}>
           <Col span={11}>
             <FormItem
-              label="Байршил"
-              name="nsId"
+              label='Байршил'
+              name='nsId'
               initialValue={editData?.nsId}
               rules={[{required: true, message: 'Байршил сонгоно уу'}]}
-              // className="mb10"
+              // className='mb10'
             >
               <SelectNameSpace placeHolder={'Сонгох'} token={session.token}/>
             </FormItem>
             <FormItem
-              label="Хэл"
-              name="lng"
+              label='Хэл'
+              name='lng'
               initialValue={editData?.lng}
               rules={[{required: true, message: 'Хэл сонгоно уу'}]}
-              // className="mb10"
+              // className='mb10'
             >
               <LanguageSelect defaultValue={null} placeHolder={'Сонгох'} token={session.token}/>
             </FormItem>
           </Col>
           <Col>
             <FormItem
-              label="Талбарын нэр"
-              name="field"
+              label='Талбарын нэр'
+              name='field'
               rules={[
                 {required: true, message: 'Талбарын нэр'},
                 {validator: (rule, control, callback) => validateField(rule, control, callback)}
               ]}
-              // className="mb10"
+              // className='mb10'
             >
               <Input
                 suffix={
                   <Tooltip placement={'top'} title={'Зөвхөн латин жижиг үсэг оруулна'}>
                     <InfoCircleOutlined color={'blue'}/>
                   </Tooltip>}
-                placeholder="Утга"
+                placeholder='Утга'
               />
             </FormItem>
             <FormItem
-              label="Идэвхтэй эсэх"
-              name="active"
-              valuePropName="checked"
+              label='Идэвхтэй эсэх'
+              name='active'
+              valuePropName='checked'
               initialValue={true}
-              // className="mb10"
+              // className='mb10'
             >
-              <Switch checkedChildren="Тийм" unCheckedChildren="Үгүй"/>
+              <Switch checkedChildren='Тийм' unCheckedChildren='Үгүй'/>
             </FormItem>
           </Col>
         </Row>
         <FormItem
-          label="Орчуулга"
-          name="translation"
+          label='Орчуулга'
+          name='translation'
           rules={[{required: true, message: 'Орчуулга бичнэ үү'}]}
-          // className="mb10"
+          // className='mb10'
         >
-          <Input.TextArea placeholder="Орчуулга"/>
+          <Input.TextArea placeholder='Орчуулга'/>
         </FormItem>
       </Form>
     </Modal>

@@ -21,7 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserDataFiller {
 
-    private static final String EMAIL = "@accept-system.mn";
+    private static final String EMAIL = "@test.mn";
 
     private final UserRepository userRepository;
     private final BusinessRoleRepository roleRepository;

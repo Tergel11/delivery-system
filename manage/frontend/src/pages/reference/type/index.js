@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Alert, Button, Card, Divider, Form, Input, message, Popconfirm, Table, Tag, Tooltip} from 'antd'
 import {observer} from 'mobx-react-lite'
 
@@ -124,7 +124,7 @@ const ReferenceType = observer(() => {
       title: 'Лого',
       dataIndex: 'icon',
       width: '250px',
-      render: (text) => text && <img src={text.url} height={50} alt="icon"/>
+      render: (text) => text && <img src={text.url} height={50} alt='icon'/>
     },
     {
       title: 'Нэр',
@@ -143,26 +143,26 @@ const ReferenceType = observer(() => {
       title: 'Идэвхтэй эсэх',
       dataIndex: 'active',
       width: '150px',
-      render: text => text ? <Tag color="green">Тийм</Tag> : <Tag color="purple">Үгүй</Tag>
+      render: text => text ? <Tag color='green'>Тийм</Tag> : <Tag color='purple'>Үгүй</Tag>
     }, {
       title: 'Үйлдэл',
       width: '200px',
       render: (text, record) => (
         //
         <>
-          <Tooltip placement="top" title="Засах">
+          <Tooltip placement='top' title='Засах'>
             <Button
               icon={<EditTwoTone/>}
               onClick={() => showModal('UPDATE', record)}
               style={{color: 'green'}}
-              type="dashed"
-              shape="circle"
+              type='dashed'
+              shape='circle'
             />
           </Tooltip>
-          <Divider type="vertical"/>
-          <Tooltip placement="top" title="Устгах">
-            <Popconfirm title="Устгах уу ?" onConfirm={() => handleDelete(record)}>
-              <Button icon={<DeleteTwoTone/>} style={{color: 'red'}} type="dashed" shape="circle"/>
+          <Divider type='vertical'/>
+          <Tooltip placement='top' title='Устгах'>
+            <Popconfirm title='Устгах уу ?' onConfirm={() => handleDelete(record)}>
+              <Button icon={<DeleteTwoTone/>} style={{color: 'red'}} type='dashed' shape='circle'/>
             </Popconfirm>
           </Tooltip>
         </>
@@ -171,22 +171,22 @@ const ReferenceType = observer(() => {
 
   const headerActions = (
     checkAuthRole('ROLE_REFERENCE_TYPE_MANAGE', session.applicationRoles) ? (
-      <Button icon={<PlusOutlined/>} type="primary" onClick={() => showModal('CREATE')}>
+      <Button icon={<PlusOutlined/>} type='primary' onClick={() => showModal('CREATE')}>
         Бүртгэх
       </Button>
     ) : '')
 
   const renderFilterForm = () => (
-    <Form form={form} onFinish={handleSearch} layout="inline">
+    <Form form={form} onFinish={handleSearch} layout='inline'>
       <FormItem
-        label="Нэр"
-        name="name"
-        className="mb10"
+        label='Нэр'
+        name='name'
+        className='mb10'
       >
-        <Input placeholder="Нэр"/>
+        <Input placeholder='Нэр'/>
       </FormItem>
       <FormItem>
-        <Button type="primary" htmlType="submit">
+        <Button type='primary' htmlType='submit'>
           Хайх
         </Button>
         <Button style={{marginLeft: 8}} onClick={handleFormReset}>
@@ -198,7 +198,7 @@ const ReferenceType = observer(() => {
 
   return (
     <>
-      <NextSeo title="Хэрэглэгчийн эрх - Astvision Starter"/>
+      <NextSeo title='Хэрэглэгчийн эрх - Astvision Starter'/>
       <PageHeader
         routes={[
           {
@@ -206,15 +206,15 @@ const ReferenceType = observer(() => {
             link: '/'
           }
         ]}
-        title="Лавлах сангийн төрөл"
+        title='Лавлах сангийн төрөл'
         action={headerActions}
       />
       <Card bordered={false}>
         {renderFilterForm()}
         <br/>
         <Table
-          rowKey="id"
-          size="small"
+          rowKey='id'
+          size='small'
           loading={loading}
           columns={columns}
           dataSource={list || []}
@@ -224,13 +224,13 @@ const ReferenceType = observer(() => {
             () => <Alert
               message={
                 <span style={{marginLeft: 8}}>
-                      Нийт
-                      <span style={{fontWeight: 600}}>
-                        <a style={{fontWeight: 600, marginLeft: '8px'}}>{pagination ? pagination.total : 0}</a>{' '}
-                      </span>
-                    </span>
+                  Нийт
+                  <span style={{fontWeight: 600}}>
+                    <a style={{fontWeight: 600, marginLeft: '8px'}}>{pagination ? pagination.total : 0}</a>{' '}
+                  </span>
+                </span>
               }
-              type="info"
+              type='info'
               showIcon
             />
           }
